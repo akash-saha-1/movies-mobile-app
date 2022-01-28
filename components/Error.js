@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {View, StyleSheet, Text, Dimensions} from 'react-native';
+import Colors from '../theme/Colors';
 
 const dimensions = Dimensions.get('screen');
 
@@ -33,7 +34,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: 'bold',
-    color: 'red',
+    color: Colors.danger,
     fontSize: 18,
   },
 });

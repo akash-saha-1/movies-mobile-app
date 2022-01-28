@@ -12,6 +12,7 @@ import {IMAGE_URL_PREFIX_PATH} from '../hooks/Const';
 import List from '../components/List';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
+import NavBar from '../components/NavBar';
 
 const dimensions = Dimensions.get('screen');
 
@@ -121,6 +122,7 @@ const Home = ({navigation}) => {
           )}
         </>
       )}
+      <NavBar navigation={navigation} main={true} />
     </ScrollView>
   );
 };

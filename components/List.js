@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import {View, Text, StyleSheet, Dimensions, FlatList} from 'react-native';
 import Card from './Card';
 import PropTypes from 'prop-types';
+import Colors from '../theme/Colors';
 
 const propTypes = {
   title: PropTypes.string,
@@ -38,9 +39,9 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   text: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'bold',
-    color: 'black',
+    color: Colors.midnightblue,
     paddingBottom: 10,
     textAlign: 'center',
   },

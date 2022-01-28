@@ -7,7 +7,6 @@ import {
   Dimensions,
   View,
   Modal,
-  Pressable,
 } from 'react-native';
 import StarRating from 'react-native-star-rating';
 import dateFormat from 'dateformat';
@@ -16,6 +15,8 @@ import {IMAGE_URL_PREFIX_PATH} from '../hooks/Const';
 import {getMovieDetail, getTvDetail} from '../hooks/services';
 import PlayButton from '../components/PlayButton';
 import Video from '../components/Video';
+import NavBar from '../components/NavBar';
+import Colors from '../theme/Colors';
 const placeholderImage = require('./../assets/images/placeholder.png');
 
 const dimension = Dimensions.get('screen');
@@ -29,12 +30,14 @@ const Detail = ({route, navigation}) => {
   useEffect(() => {
     setLoaded(false);
     if (isMovie) {
+      console.log(movieId);
       getMovieDetail(movieId)
         .then(movieData => {
           setMovieDetail(movieData);
         })
         .finally(() => setLoaded(true));
     } else {
+      console.log('v', movieId);
       getTvDetail(movieId)
         .then(tvData => {
           setMovieDetail(tvData);
@@ -82,7 +85,7 @@ const Detail = ({route, navigation}) => {
                 maxStars={5}
                 rating={movieDetail.vote_average / 2}
                 disabled={true}
-                fullStarColor="gold"
+                fullStarColor={Colors.gold}
                 starSize={30}
                 style={styles.rating}
               />
@@ -108,6 +111,9 @@ const Detail = ({route, navigation}) => {
               <Video onClose={showVideo} />
             </View>
           </Modal>
+
+          {/* this is at the last beacuse touchable opacity on press does not work normally in postion absolute. so after last placement it will be on  top of the dom in terms of positioning */}
+          <NavBar navigation={navigation} />
         </View>
       )}
     </>

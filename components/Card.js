@@ -11,9 +11,16 @@ const propTypes = {
 
 class Card extends PureComponent {
   render() {
-    const {item} = this.props;
+    const {item, navigation} = this.props;
     return (
-      <TouchableOpacity style={styles.container}>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() =>
+          navigation.navigate('Detail', {
+            isMovie: !!item.release_date,
+            movieId: item.id,
+          })
+        }>
         <Image
           resizeMode="contain"
           style={styles.image}

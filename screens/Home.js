@@ -15,7 +15,7 @@ import Error from '../components/Error';
 
 const dimensions = Dimensions.get('screen');
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [moviesImages, setMoviesImages] = useState([]);
   const [popularMovies, setPopularMovies] = useState([]);
   const [popularTv, setPopularTv] = useState([]);
@@ -79,27 +79,44 @@ const Home = () => {
                 sliderBoxHeight={dimensions.height / 2.25}
                 dotStyle={styles.sliderStyle}
                 resizeMode="stretch"
+                onPress={() => navigation.navigate('Detail')}
               />
             </View>
           )}
           {popularMovies?.length > 0 && (
             <View style={styles.carousel}>
-              <List title="Popular Movies" content={popularMovies} />
+              <List
+                title="Popular Movies"
+                content={popularMovies}
+                navigation={navigation}
+              />
             </View>
           )}
           {popularTv?.length > 0 && (
             <View style={styles.carousel}>
-              <List title="Popular TV Shows" content={popularTv} />
+              <List
+                title="Popular TV Shows"
+                content={popularTv}
+                navigation={navigation}
+              />
             </View>
           )}
           {thrillerMovies?.length > 0 && (
             <View style={styles.carousel}>
-              <List title="Thriller Movies" content={thrillerMovies} />
+              <List
+                title="Thriller Movies"
+                content={thrillerMovies}
+                navigation={navigation}
+              />
             </View>
           )}
           {horrorMovies?.length > 0 && (
             <View style={styles.carousel}>
-              <List title="Horror Movies" content={horrorMovies} />
+              <List
+                title="Horror Movies"
+                content={horrorMovies}
+                navigation={navigation}
+              />
             </View>
           )}
         </>

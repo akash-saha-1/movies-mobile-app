@@ -47,3 +47,15 @@ export const getScienceFictionMovies = async () => {
   );
   return res.data.results;
 };
+
+// get movie by id
+export const getMovieDetail = async id => {
+  const res = await axios.get(`${apiUrl}/movie/${id}?${apiKey}`);
+  return res.data;
+};
+
+// get tv by id
+export const getTvDetail = async id => {
+  const res = await axios.get(`${apiUrl}/tv/${id}?${apiKey}`);
+  return res.data;
+};

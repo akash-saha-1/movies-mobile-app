@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {
-  SafeAreaView,
   TouchableOpacity,
   StyleSheet,
   View,
@@ -44,7 +43,7 @@ const NavBar = ({navigation, main}) => {
   return (
     <>
       {main ? (
-        <SafeAreaView style={styles.headerStyle}>
+        <View style={styles.headerStyle}>
           {/* <Image
               style={styles.logo}
               source={require('../assets/movies-icon.png')}
@@ -60,13 +59,13 @@ const NavBar = ({navigation, main}) => {
               <Icon name="search-outline" size={35} color={`${Colors.blue}`} />
             </TouchableOpacity>
           </View>
-        </SafeAreaView>
+        </View>
       ) : (
-        <SafeAreaView style={styles.headerStyle}>
+        <View style={styles.headerStyle}>
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <Icon name={'chevron-back'} size={40} color={Colors.danger} />
           </TouchableOpacity>
-        </SafeAreaView>
+        </View>
       )}
     </>
   );

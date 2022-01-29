@@ -14,7 +14,7 @@ import Loader from '../components/Loader';
 import {IMAGE_URL_PREFIX_PATH} from '../hooks/Const';
 import {getMovieDetail, getTvDetail} from '../hooks/services';
 import PlayButton from '../components/PlayButton';
-import Video from '../components/Video';
+import VideoScreen from '../components/VideoScreen';
 import NavBar from '../components/NavBar';
 import Colors from '../theme/Colors';
 const placeholderImage = require('./../assets/images/placeholder.png');
@@ -104,9 +104,10 @@ const Detail = ({route, navigation}) => {
           <Modal
             animationType="slide"
             visible={modalVisible}
+            statusBarTranslucent={true}
             supportedOrientations={['portrait', 'landscape']}>
             <View style={styles.videoModal}>
-              <Video onClose={showVideo} />
+              <VideoScreen onClose={showVideo} />
             </View>
           </Modal>
 
@@ -159,9 +160,9 @@ const styles = StyleSheet.create({
     right: 20,
   },
   videoModal: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexGrow: 1,
+    width: Dimensions.width,
+    height: Dimensions.height,
   },
 });
 

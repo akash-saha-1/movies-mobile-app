@@ -1,7 +1,7 @@
 import React from 'react';
 import VideoPlayer from 'react-native-video-controls';
 
-const Video = ({onClose}) => {
+const VideoScreen = ({onClose}) => {
   return (
     <VideoPlayer
       source={{uri: 'https://vjs.zencdn.net/v/oceans.mp4'}}
@@ -12,4 +12,4 @@ const Video = ({onClose}) => {
   );
 };
 
-export default Video;
+export default VideoScreen;

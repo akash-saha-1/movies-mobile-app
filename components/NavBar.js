@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   SafeAreaView,
   TouchableOpacity,
@@ -12,7 +12,7 @@ import EntypoIcon from 'react-native-vector-icons/Entypo';
 import PropTypes from 'prop-types';
 import Colors from '../theme/Colors';
 
-const dimensions = Dimensions.get('screen');
+const dimensions = Dimensions.get('window');
 
 const propTypes = {
   main: PropTypes.bool,
@@ -22,44 +22,55 @@ const defaultProps = {
   main: false,
 };
 
-class NavBar extends PureComponent {
-  render() {
-    const {navigation, main} = this.props;
-    return (
-      <>
-        {main ? (
-          <SafeAreaView style={styles.headerStyle}>
-            {/* <Image
+const NavBar = ({navigation, main}) => {
+  const [orientation, setOrientation] = useState('portrait');
+  const [scWidth, setScWidth] = useState(dimensions.width);
+  const isPortrait = () => {
+    const dim = Dimensions.get('screen');
+    setScWidth(dim.width);
+    return dim.height >= dim.width;
+  };
+
+  useEffect(() => {
+    Dimensions.addEventListener('change', () => {
+      setOrientation(isPortrait() ? 'portrait' : 'landscape');
+    });
+
+    return () => {
+      Dimensions.removeEventListener('change');
+    };
+  }, []);
+
+  return (
+    <>
+      {main ? (
+        <SafeAreaView style={styles.headerStyle}>
+          {/* <Image
               style={styles.logo}
               source={require('../assets/movies-icon.png')}
             /> */}
-            <View style={styles.mainNav}>
-              <EntypoIcon
-                name="medium"
-                size={30}
-                color={`${Colors.primaryBlue}`}
-                style={styles.mLogo}
-              />
-              <TouchableOpacity onPress={() => navigation.navigate('Search')}>
-                <Icon
-                  name="search-outline"
-                  size={35}
-                  color={`${Colors.blue}`}
-                />
-              </TouchableOpacity>
-            </View>
-          </SafeAreaView>
-        ) : (
-          <SafeAreaView style={styles.headerStyle}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-              <Icon name={'chevron-back'} size={40} color={Colors.danger} />
+          <View style={{...styles.mainNav, width: scWidth}}>
+            <EntypoIcon
+              name="medium"
+              size={30}
+              color={`${Colors.primaryBlue}`}
+              style={styles.mLogo}
+            />
+            <TouchableOpacity onPress={() => navigation.navigate('Search')}>
+              <Icon name="search-outline" size={35} color={`${Colors.blue}`} />
             </TouchableOpacity>
-          </SafeAreaView>
-        )}
-      </>
-    );
-  }
-}
+          </View>
+        </SafeAreaView>
+      ) : (
+        <SafeAreaView style={styles.headerStyle}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Icon name={'chevron-back'} size={40} color={Colors.danger} />
+          </TouchableOpacity>
+        </SafeAreaView>
+      )}
+    </>
+  );
+};
 
 const styles = StyleSheet.create({
   headerStyle: {
@@ -89,7 +100,6 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     backgroundColor: Colors.transperant,
     height: 50,
-    width: dimensions.width,
     paddingRight: 15,
   },
   mLogo: {

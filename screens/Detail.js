@@ -30,14 +30,12 @@ const Detail = ({route, navigation}) => {
   useEffect(() => {
     setLoaded(false);
     if (isMovie) {
-      console.log(movieId);
       getMovieDetail(movieId)
         .then(movieData => {
           setMovieDetail(movieData);
         })
         .finally(() => setLoaded(true));
     } else {
-      console.log('v', movieId);
       getTvDetail(movieId)
         .then(tvData => {
           setMovieDetail(tvData);

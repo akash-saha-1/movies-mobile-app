@@ -1,7 +1,8 @@
 import axios from 'axios';
+import configs from './../config/config';
 
-const apiUrl = 'https://api.themoviedb.org/3';
-const apiKey = 'api_key=0a265acc28d52ce1f04daa506f78f4e0';
+const apiUrl = configs.API_URL;
+const apiKey = `api_key=${configs.API_KEY}`;
 const horrorGenres = 27;
 const thrillerGenres = 53;
 const scienceFictionGenres = 878;

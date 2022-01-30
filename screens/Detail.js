@@ -132,7 +132,8 @@ const styles = StyleSheet.create({
   movieTitle: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginVertical: 10,
+    marginBottom: 10,
+    marginTop: 20,
   },
   genresContainer: {
     flexDirection: 'row',

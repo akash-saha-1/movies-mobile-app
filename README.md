@@ -8,7 +8,7 @@ This is a yarn managed project.
 
 # Description
 
-This is a Movies App with multiple features which helps us to show upcoming movies, popular movies, tv shows etc and also show their information with HD videos.
+This is a Movies App with Multiple Features which helps us to show Upcoming Movies, Popular Movies, Tv Shows etc and also shows their Information with HD Video.
 
 Screenshots of the App
 

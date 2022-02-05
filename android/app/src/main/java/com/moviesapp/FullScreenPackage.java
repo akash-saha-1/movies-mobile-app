@@ -1,4 +1,4 @@
-package com.moviesapp;
+package com.akash.moviesapp;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;

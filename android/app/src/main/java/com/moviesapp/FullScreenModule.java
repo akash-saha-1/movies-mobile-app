@@ -1,6 +1,6 @@
 // FullScreenModule.java
 
-package com.moviesapp;
+package com.akash.moviesapp;
 import android.view.View;
 import android.app.Activity;
 import com.facebook.react.bridge.NativeModule;

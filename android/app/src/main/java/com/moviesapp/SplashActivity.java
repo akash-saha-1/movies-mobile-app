@@ -1,4 +1,4 @@
-package com.moviesapp;
+package com.akash.moviesapp;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;

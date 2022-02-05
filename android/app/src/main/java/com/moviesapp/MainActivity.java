@@ -1,4 +1,4 @@
-package com.moviesapp;
+package com.akash.moviesapp;
 import org.devio.rn.splashscreen.SplashScreen;
 import android.os.Bundle;
 

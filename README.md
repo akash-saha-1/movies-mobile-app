@@ -10,6 +10,10 @@ This is a yarn managed project.
 
 This is a Movies App with Multiple Features which helps us to show Upcoming Movies, Popular Movies, Tv Shows etc and also shows their Information with HD Video.
 
+# Privacy Policy URL
+
+https://pages.flycricket.io/movies-app-1/privacy.html
+
 Screenshots of the App
 
 # Home Screen

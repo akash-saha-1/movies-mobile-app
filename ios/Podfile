@@ -1,7 +1,7 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-platform :ios, '11.0'
+platform :ios, '15.3'
 
 target 'MoviesApp' do
   config = use_native_modules!
@@ -12,9 +12,7 @@ target 'MoviesApp' do
     :hermes_enabled => false
   )
 
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
-  pod 'react-native-video', :path => '../node_modules/react-native-video'
 
   target 'MoviesAppTests' do
     inherit! :complete

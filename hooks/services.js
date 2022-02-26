@@ -15,6 +15,7 @@ export const getPopularMovies = async () => {
 
 // get upcoming movies
 export const getUpcomingMovies = async () => {
+  console.log(apiUrl, apiKey)
   const res = await axios.get(`${apiUrl}/movie/upcoming?${apiKey}`);
   return res.data.results;
 };

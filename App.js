@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import MainNavigation from './components/MainNavigation';
 import FullScreen from './FullScreen';
@@ -12,8 +12,10 @@ LogBox.ignoreAllLogs(); //Ignore all log notifications
 
 const App = () => {
   useEffect(() => {
-    FullScreen.enable();
-    SplashScreen.hide();
+    if(Platform.OS === 'android'){
+      FullScreen.enable();
+      SplashScreen.hide();
+    }
   }, []);
 
   return (
